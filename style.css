@@ -84,11 +84,39 @@ header {
   font-weight: 500;
   transition: 0.5s;
   backdrop-filter: blur(20px);
-  align-items: center;
-  align-content: center;
-  justify-content: center;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
   transition: ease-out 1.5s;
   transition-delay: 0.5s;
+  text-align: center;
+}
+
+.btn:hover .arrow {
+  opacity: 1;
+}
+
+.btn:hover .text {
+  opacity: 0;
+}
+
+.arrow,
+.text {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity 0.3s ease;
+  position: center;
+}
+
+.arrow {
+  right: 47px;
+  opacity: 0;
+}
+
+.text {
+  left: 25px;
+  opacity: 1;
 }
 
 .video-container {
@@ -188,7 +216,7 @@ header {
 }
 
 #bro {
-  position: relative; /* Ensures that the image containers are positioned relative to this container */
+  position: relative; 
 }
 
 .image-container {
@@ -198,7 +226,7 @@ header {
   opacity: 0;
   visibility: hidden;
   position: absolute;
-  width: auto; /* Adjusts the width to fit the content */
+  width: auto; 
   top: 50%;
   transform: translateY(-50%);
   transition: opacity 0.3s, visibility 1.5s;
@@ -221,17 +249,17 @@ header {
 }
 
 .selectable-image {
-  flex: 1 0 auto; /* Adjusts the flex-basis to fit the content */
+  flex: 1 0 auto; 
   margin: 2px;
   cursor: pointer;
   transition: border 0.3s ease;
-  max-width: 100%; /* Ensures the image does not exceed the container's width */
-  max-height: 70px; /* Ensures the image does not exceed the container's height */
-  object-fit: contain; /* Ensures the image maintains its aspect ratio */
+  max-width: 100%; 
+  max-height: 70px; 
+  object-fit: contain; 
 }
 
 .selectable-image {
-  /* Other styles remain unchanged */
+
   border: 3px solid transparent; /* Initially transparent border */
   border-radius: 10px; /* Rounded corners */
   transition: border-color 0.3s ease; /* Smooth transition for border color */
