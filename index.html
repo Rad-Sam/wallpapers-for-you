@@ -15,7 +15,7 @@
       onload="this.rel='stylesheet'"
     />
     <style>
-
+      /* Existing styles */
       .preload-overlay {
         position: fixed;
         top: 0;
@@ -41,26 +41,26 @@
         overflow: auto;
       }
 
-
+      /* New styles for the welcome and made-by texts */
       .welcome,
       .made-by {
-        color: white; 
+        color: white; /* Change the color as needed */
         position: absolute;
         top: 50%; /* Center vertically */
         left: 50%; /* Center horizontally */
         transform: translate(-50%, -50%);
-        font-size: 24px;
-        animation: fadeIn 0.5s ease-out; 
-        animation-iteration-count: 1; 
-        animation-fill-mode: forwards; 
+        font-size: 24px; /* Adjust font size as needed */
+        animation: fadeIn 0.5s ease-out; /* Apply the fadeIn animation */
+        animation-iteration-count: 1; /* Ensure the animation plays only once */
+        animation-fill-mode: forwards; /* Keep the final state after animation ends */
       }
 
       .made-by {
         top: 80%;
-        font-size: 18px;
+        font-size: 18px; /* Adjust font size as needed */
       }
 
-
+      /* Define the fadeIn animation */
       @keyframes fadeIn {
         0% {
           opacity: 0;
@@ -85,10 +85,10 @@
 
     <div class="preload-overlay"></div>
 
-
+    <!-- Your page content goes here -->
 
     <script>
-
+      // Wait for the page to load
       window.addEventListener("load", function () {
         const overlay = document.querySelector(".preload-overlay");
 
@@ -103,10 +103,10 @@
         overlay.appendChild(welcomeText);
         overlay.appendChild(madeByText);
 
-
+        // Add the 'fade-out' class after a short delay (500ms)
         setTimeout(function () {
           overlay.classList.add("fade-out");
-
+          // Wait for the transition to complete, then remove the overlay
           overlay.addEventListener("transitionend", function () {
             overlay.remove();
           });
