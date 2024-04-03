@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1"
+    />
+    <title>Website With Login & Registration | Codehal</title>
+    <link
+      rel="preload"
+      href="style.css"
+      as="style"
+      onload="this.rel='stylesheet'"
+    />
+    <style>
+      /* Existing styles */
+      .preload-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: black;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+        transition-delay: 1s;
+        opacity: 1;
+      }
+
+      .preload-overlay.fade-out {
+        opacity: 0;
+      }
+
+      body {
+        overflow: hidden;
+      }
+
+      .preload-overlay.fade-out + body {
+        overflow: auto;
+      }
+
+      /* New styles for the welcome and made-by texts */
+      .welcome,
+      .made-by {
+        color: white; /* Change the color as needed */
+        position: absolute;
+        top: 50%; /* Center vertically */
+        left: 50%; /* Center horizontally */
+        transform: translate(-50%, -50%);
+        font-size: 24px; /* Adjust font size as needed */
+        animation: fadeIn 0.5s ease-out; /* Apply the fadeIn animation */
+        animation-iteration-count: 1; /* Ensure the animation plays only once */
+        animation-fill-mode: forwards; /* Keep the final state after animation ends */
+      }
+
+      .made-by {
+        top: 80%;
+        font-size: 18px; /* Adjust font size as needed */
+      }
+
+      /* Define the fadeIn animation */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <h2 class="logo">rad</h2>
+      <nav class="navigation">
+        <a href="#">home</a>
+        <a href="#">download</a>
+        <a href="#">personal favorites</a>
+        <a href="#">contact</a>
+      </nav>
+    </header>
+
+    <div class="preload-overlay"></div>
+
+    <!-- Your page content goes here -->
+
+    <script>
+      // Wait for the page to load
+      window.addEventListener("load", function () {
+        const overlay = document.querySelector(".preload-overlay");
+
+        const welcomeText = document.createElement("div");
+        welcomeText.classList.add("welcome");
+        welcomeText.textContent = "Welcome";
+
+        const madeByText = document.createElement("div");
+        madeByText.classList.add("made-by");
+        madeByText.textContent = "- made by rad";
+
+        overlay.appendChild(welcomeText);
+        overlay.appendChild(madeByText);
+
+        // Add the 'fade-out' class after a short delay (500ms)
+        setTimeout(function () {
+          overlay.classList.add("fade-out");
+          // Wait for the transition to complete, then remove the overlay
+          overlay.addEventListener("transitionend", function () {
+            overlay.remove();
+          });
+        }, 500);
+      });
+    </script>
+
+    <div id="bro" class="fix-12-12">
+      <div class="col-6-12 left middle">
+        <h1 id="title" class="ae-1 fromLeft">
+          <div class="best-word">The Best</div>
+          <div class="vectorword">Minimalist</div>
+          <br />
+          Wallpapers on The Web
+        </h1>
+        <div id="one" class="image-container">
+          <img
+            id="fantasy"
+            src="1.jpg"
+            class="selectable-image"
+            data-theme="fantasy"
+          />
+          <img
+            id="anime"
+            src="2.jpg"
+            class="selectable-image"
+            data-theme="anime"
+          />
+          <img
+            id="minimalist"
+            src="3.jpg"
+            class="selectable-image"
+            data-theme="minimalist"
+          />
+        </div>
+        <p id="texthand" class="ae-2 fromLeft">hand picked</p>
+        <p id="textfor" class="ae-2 fromLeft">for you</p>
+
+        <div id="two" class="image-container">
+          <img
+            id="vector"
+            src="4.png"
+            class="selectable-image"
+            data-theme="vector"
+          />
+          <img
+            id="nature"
+            src="5.jpg"
+            class="selectable-image"
+            data-theme="nature"
+          />
+          <img
+            id="mobile"
+            src="66.jfif"
+            class="selectable-image"
+            data-theme="mobile"
+          />
+        </div>
+      </div>
+      <button class="btn">browse</button>
+    </div>
+
+    <br />
+
+    <div class="wrapper">
+      <div class="form-box login"></div>
+    </div>
+
+    <script src="script.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+
+    <div class="video-container">
+      <span class="close-button" onclick="closeVideo()">&times;</span>
+      <video src="vid.mp4" controls class="video"></video>
+    </div>
+
+    <script>
+      const btn = document.querySelector(".btn");
+      const videoContainer = document.querySelector(".video-container");
+      const video = document.querySelector(".video");
+
+      btn.addEventListener("click", function () {
+        videoContainer.classList.add("active");
+        video.play();
+      });
+
+      function closeVideo() {
+        video.pause();
+        video.currentTime = 0;
+        videoContainer.classList.remove("active");
+      }
+    </script>
+  </body>
+</html>
